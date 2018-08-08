@@ -19,6 +19,13 @@ public class GameTest {
 			game.roll(pins);
 		}
 	}
+	private void rollSpare() {
+		game.roll(5);
+		game.roll(5);
+	}
+	private void rollStrike() {
+		game.roll(10);
+	}
 	@Test
 	public void testGutterGame() throws Exception {
 		rollMany(20, 0);
@@ -31,10 +38,17 @@ public class GameTest {
 	}
 	@Test
 	public void testOneSpare() throws Exception {
-		game.roll(5);
-		game.roll(5);
+		rollSpare();
 		game.roll(3);
 		rollMany(17, 0);
 		assertEquals(16, game.score());
+	}
+	@Test
+	public void testOneStrike() {
+		rollStrike();
+		game.roll(3);
+		game.roll(4);
+		rollMany(16, 0);
+		assertEquals(24, game.score());
 	}
 }
