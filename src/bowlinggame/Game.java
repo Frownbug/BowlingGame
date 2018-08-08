@@ -25,7 +25,8 @@ public class Game {
 		return score;
 	}
 	private int sumOfRollsInFrame(int frameIndex) {
-		return rolls[frameIndex] + rolls[frameIndex + 1];	}
+		return rolls[frameIndex] + rolls[frameIndex + 1];
+	}
 	private int spareBonus(int frameIndex) {
 		return rolls[frameIndex + 2];
 	}

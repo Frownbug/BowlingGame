@@ -51,4 +51,17 @@ public class GameTest {
 		rollMany(16, 0);
 		assertEquals(24, game.score());
 	}
+	@Test
+	public void testPerfectGame() {
+		rollMany(12,10);
+		assertEquals(300, game.score());
+	}
+	@Test
+	public void testNoExtraRollOnTenthFrame() {
+		rollMany(18, 0);
+		game.roll(4);
+		game.roll(3);
+		game.roll(5);
+		assertEquals(7, game.score());
+	}
 }
